@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block content %}
+
+{% include 'form.html' %}
+
+<h1 style="color: blueviolet; background-color: black; ">YOUR TASKS</h1>
+<div class = 'tasks'>
+    {% for task in tasks %}
+        <div class = 'inner-task'>
+            <h3>{{ task.tname }}</h3>
+            <p>{{ task.tdesc }}</p>
+            <button style="font:400"><a href="{% url 'update' task.id %}">Edit</a></button>
+            <button style = "font:large"><a href="{% url 'delete' task.id %}">Delete</a></button>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
